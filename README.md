@@ -7,12 +7,12 @@ React front-end client
 
 # Installation
 
-`git clone https://github.com/MihaiGitHub/Crown-Clothing.git`<br><br>
+`git clone https://github.com/MihaiGitHub/Crown-Clothing.git`<br>
 `npm install`<br><br>
 
 # Running the client
 
-`npm start`
+`npm start`<br>
 
 # Running the automation tests
 
