@@ -12,7 +12,7 @@ React front-end client
 
 # Running the client
 
-`npm start`<br>
+`npm start`<br><br>
 
 # Running the automation tests
 
