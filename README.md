@@ -1,4 +1,4 @@
-# Crown Clothing
+# Apparel Alchemy
 
 E-commerce progressive web application allowing Single Sign-On (SSO) using Google and online payments using Stripe.
 
