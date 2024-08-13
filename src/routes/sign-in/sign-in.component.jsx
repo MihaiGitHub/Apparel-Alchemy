@@ -1,5 +1,6 @@
 import {
   signInWithGooglePopup,
+  signInWithGoogleRedirect,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 
@@ -10,10 +11,19 @@ const SignIn = () => {
     console.log(user);
   };
 
+  // takes user to separate page when signing in to Google
+  const logGoogleRedirectUser = async () => {
+    const { user } = await signInWithGoogleRedirect();
+    console.log(user);
+  };
+
   return (
     <div>
       <h1>Sign In Page</h1>
       <button onClick={logGoogleUser}>Sign in with Google Popup</button>
+      <button onClick={logGoogleRedirectUser}>
+        Sign in with Google Redirect
+      </button>
     </div>
   );
 };
