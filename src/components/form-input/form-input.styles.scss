@@ -28,6 +28,7 @@ $main-color: black;
       outline: none;
     }
 
+    /* when focused on the input find the next sibling with class .form-input-label and attach the shrinkLabel mixin */
     &:focus ~ .form-input-label {
       @include shrinkLabel();
     }
