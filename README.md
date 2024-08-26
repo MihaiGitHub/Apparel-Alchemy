@@ -3,7 +3,7 @@
 E-commerce progressive web application allowing Single Sign-On (SSO) using Google and online payments using Stripe.
 
 Firebase back-end database<br>
-React front-end client
+React/Redux front-end client
 
 # Installation
 
