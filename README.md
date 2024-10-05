@@ -1,5 +1,7 @@
 # Apparel Alchemy
 
+\*React SASS version
+
 E-commerce progressive web application allowing Single Sign-On (SSO) using Google and integrated with payment processing API - Stripe.
 
 Firebase back-end database<br>
