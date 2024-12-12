@@ -27,12 +27,12 @@ import {
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "XXXX",
-  authDomain: "XXXX",
-  projectId: "XXXX",
-  storageBucket: "XXXX",
-  messagingSenderId: "XXXX",
-  appId: "XXXX",
+  apiKey: "AIzaSyBzvp-Ct-6xG9_AN14KXfXWAHE2Zfd26Cw",
+  authDomain: "apparel-alchemy.firebaseapp.com",
+  projectId: "apparel-alchemy",
+  storageBucket: "apparel-alchemy.firebasestorage.app",
+  messagingSenderId: "100503288591",
+  appId: "1:100503288591:web:0b3ca5abe55fe706cd1c7a",
 };
 
 // Initialize Firebase
@@ -73,13 +73,7 @@ export const getCategoriesAndDocuments = async () => {
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
-  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-    const { title, items } = docSnapshot.data();
-    acc[title.toLowerCase()] = items;
-    return acc;
-  }, {});
-
-  return categoryMap;
+  return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
 };
 
 export const createUserDocumentFromAuth = async (
