@@ -13,10 +13,19 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-// runs before the action hits the reducer
-const middleWares = [loggerMiddleware];
+// runs before the action hits the reducer ONLY if the env is not production and keeps the middleware only if in dev
+const middleWares = [
+  process.env.NODE_ENV !== "production" && loggerMiddleware,
+].filter(Boolean);
 
-const composedEnhancers = compose(applyMiddleware(...middleWares));
+// if we are in dev environment and if these dev tools exist OTHERWISE just use the compose that we have from Redux
+const composeEnhancer =
+  (process.env.NODE_ENV !== "production" &&
+    window &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  compose;
+
+const composedEnhancers = composeEnhancer(applyMiddleware(...middleWares));
 
 // undefined is an optional second parameter
 export const store = createStore(
