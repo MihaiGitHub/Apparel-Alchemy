@@ -3,6 +3,8 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 // import logger from "redux-logger";
 import { loggerMiddleware } from "./middleware/logger";
+// redux thunk allows actions to be passed as functions
+import { thunk } from "redux-thunk";
 import { rootReducer } from "./root-reducer";
 
 const persistConfig = {
@@ -16,6 +18,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 // runs before the action hits the reducer ONLY if the env is not production and keeps the middleware only if in dev
 const middleWares = [
   process.env.NODE_ENV !== "production" && loggerMiddleware,
+  thunk,
 ].filter(Boolean);
 
 // if we are in dev environment and if these dev tools exist OTHERWISE just use the compose that we have from Redux
