@@ -10,7 +10,8 @@ import { rootReducer } from "./root-reducer";
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["user"], // values of which reducer you DON'T want to persist
+  // blacklist: ["user"], // values of which reducer you DON'T want to persist
+  whitelist: ["cart"], // the only thing to persist is the cart
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
