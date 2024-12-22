@@ -1,8 +1,8 @@
 import { compose, createStore, applyMiddleware } from "redux";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-// import logger from "redux-logger";
-import { loggerMiddleware } from "./middleware/logger";
+import logger from "redux-logger";
+//import { loggerMiddleware } from "./middleware/logger";
 // async state management library
 import createSagaMiddleware from "redux-saga";
 import { rootSaga } from "./root-saga";
@@ -21,7 +21,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 // runs before the action hits the reducer ONLY if the env is not production and keeps the middleware only if in dev
 const middleWares = [
-  process.env.NODE_ENV !== "production" && loggerMiddleware,
+  process.env.NODE_ENV !== "production" && logger,
   sagaMiddleware,
 ].filter(Boolean);
 
