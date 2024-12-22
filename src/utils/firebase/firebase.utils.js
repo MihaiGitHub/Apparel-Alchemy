@@ -27,12 +27,12 @@ import {
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBzvp-Ct-6xG9_AN14KXfXWAHE2Zfd26Cw",
-  authDomain: "apparel-alchemy.firebaseapp.com",
-  projectId: "apparel-alchemy",
-  storageBucket: "apparel-alchemy.firebasestorage.app",
-  messagingSenderId: "100503288591",
-  appId: "1:100503288591:web:0b3ca5abe55fe706cd1c7a",
+  apiKey: "XXXX",
+  authDomain: "XXXX",
+  projectId: "XXXX",
+  storageBucket: "XXXX",
+  messagingSenderId: "XXXX",
+  appId: "XXXX",
 };
 
 // Initialize Firebase
@@ -128,3 +128,16 @@ export const signOutUser = async () => await signOut(auth);
 
 export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback);
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (userAuth) => {
+        unsubscribe();
+        resolve(userAuth);
+      },
+      reject
+    );
+  });
+};
