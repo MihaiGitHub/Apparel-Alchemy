@@ -1,14 +1,13 @@
-/* SASS - CSS Extension */
 body {
   margin: 0;
   padding: 20px 40px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
@@ -18,5 +17,5 @@ a {
 }
 
 * {
-  box-sizing: border-box; /* padding and border will be included in the element dimensions */
+  box-sizing: border-box;
 }
