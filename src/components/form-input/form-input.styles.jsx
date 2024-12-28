@@ -1,17 +1,14 @@
-// css lets you encapsulate css inside of a block that can be injected into components
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
-const subColor = "grey";
-const mainColor = "black";
+const subColor = 'grey';
+const mainColor = 'black';
 
-// pass an entire block of css around
 const shrinkLabelStyles = css`
   top: -14px;
   font-size: 12px;
   color: ${mainColor};
 `;
 
-// if shrink value is true in props apply shrinkLabelStyles
 export const FormInputLabel = styled.label`
   color: ${subColor};
   font-size: 16px;
@@ -21,11 +18,9 @@ export const FormInputLabel = styled.label`
   left: 5px;
   top: 10px;
   transition: 300ms ease all;
-
-  ${({ shrink }) => shrink && shrinkLabelStyles}
+  ${({ shrink }) => shrink && shrinkLabelStyles};
 `;
 
-// when focused on the input find the next sibling with class .form-input-label and attach the shrinkLabel mixin
 export const Input = styled.input`
   background: none;
   background-color: white;
@@ -44,7 +39,7 @@ export const Input = styled.input`
   }
 
   &:focus ~ ${FormInputLabel} {
-    ${shrinkLabelStyles}
+    ${shrinkLabelStyles};
   }
 `;
 
@@ -52,7 +47,7 @@ export const Group = styled.div`
   position: relative;
   margin: 45px 0;
 
-  input[type="password"] {
+  input[type='password'] {
     letter-spacing: 0.3em;
   }
 `;
