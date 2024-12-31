@@ -13,5 +13,5 @@ const middleWares = [process.env.NODE_ENV === "development" && logger].filter(
 // that it ships with (redux-thunk etc)
 export const store = configureStore({
   reducer: rootReducer,
-  // middleware: middleWares,
+  //middleware: middleWares,
 });

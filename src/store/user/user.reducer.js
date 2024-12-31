@@ -1,3 +1,4 @@
+// this file could be named user.slice.js to be more explicit
 import { createSlice } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
