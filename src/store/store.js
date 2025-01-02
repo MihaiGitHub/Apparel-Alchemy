@@ -11,7 +11,10 @@ const middleWares = [process.env.NODE_ENV === "development" && logger].filter(
 
 // if you don't include a middleware property then it will include the default middleware
 // that it ships with (redux-thunk etc)
+// BUT if you want to include your middleware and their middleware you need to pass a function
 export const store = configureStore({
   reducer: rootReducer,
-  //middleware: middleWares,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    serializableCheck: false // don't serialize or check any of the values coming into the store (solves non serializable error)
+  }).concat(middleWares), // include all default middlewares and our custom middleware
 });
