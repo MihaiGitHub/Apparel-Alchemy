@@ -1,3 +1,4 @@
+## React ReduxToolkit
 ## Install dependencies
 
 Run either `yarn` or `npm install` to build all the dependencies in the project.
