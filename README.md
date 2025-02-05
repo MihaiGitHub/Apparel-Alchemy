@@ -1,4 +1,4 @@
-## React Stripe
+## React TypeScript
 
 ## Install dependencies
 
