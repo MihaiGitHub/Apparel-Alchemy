@@ -7,6 +7,7 @@ import {
   fetchCategoriesFailed,
 } from "./category.action";
 
+// this object can be modified
 export type CategoriesState = {
   readonly categories: Category[];
   readonly isLoading: boolean;
