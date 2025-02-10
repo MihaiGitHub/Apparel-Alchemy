@@ -1,11 +1,11 @@
-import { AnyAction } from 'redux';
-import { Category } from './category.types';
+import { AnyAction } from "redux";
+import { Category } from "./category.types";
 
 import {
   fetchCategoriesStart,
   fetchCategoriesSuccess,
   fetchCategoriesFailed,
-} from './category.action';
+} from "./category.action";
 
 export type CategoriesState = {
   readonly categories: Category[];
@@ -19,6 +19,7 @@ export const CATEGORIES_INITIAL_STATE: CategoriesState = {
   error: null,
 };
 
+// action will only be one of the AnyAction types
 export const categoriesReducer = (
   state = CATEGORIES_INITIAL_STATE,
   action = {} as AnyAction
