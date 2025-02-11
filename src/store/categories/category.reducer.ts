@@ -21,10 +21,12 @@ export const CATEGORIES_INITIAL_STATE: CategoriesState = {
 };
 
 // action will only be one of the AnyAction types
+// use match to get our code to only respond to specific actions, because lots of different actions might fire
 export const categoriesReducer = (
   state = CATEGORIES_INITIAL_STATE,
   action = {} as AnyAction
 ): CategoriesState => {
+  // .match checks the action it receives against the action that it needs to create
   if (fetchCategoriesStart.match(action)) {
     return { ...state, isLoading: true };
   }

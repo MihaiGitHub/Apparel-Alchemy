@@ -1,10 +1,15 @@
 import { AnyAction } from "redux";
 
+// a type we implement to extend all the different action creator functions with an
+// ability to match the received action by the type that the action creator is associated to
+// AC = action creator; that returns back AnyAction
+// type: ReturnType<AC>["type"]; = get the ReturnType (the action itself) and from this value get the type from the type property and set it to this "type:"
 type Matchable<AC extends () => AnyAction> = AC & {
   type: ReturnType<AC>["type"];
   match(action: AnyAction): action is ReturnType<AC>;
 };
 
+// receives an action creator and creates a new matchable type out of that action creator
 export function withMatcher<AC extends () => AnyAction & { type: string }>(
   actionCreator: AC
 ): Matchable<AC>;
