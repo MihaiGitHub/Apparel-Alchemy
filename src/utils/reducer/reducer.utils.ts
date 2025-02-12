@@ -9,11 +9,14 @@ type Matchable<AC extends () => AnyAction> = AC & {
   match(action: AnyAction): action is ReturnType<AC>;
 };
 
-// receives an action creator and creates a new matchable type out of that action creator
+// receives an action creator and creates a new matchable type out of that action creator; returns back an action
+// overloading this function with different types of action creators we may receive
+// this one is one that receives an action creator with no parameters
 export function withMatcher<AC extends () => AnyAction & { type: string }>(
   actionCreator: AC
 ): Matchable<AC>;
 
+// concatenates all arguments into an array
 export function withMatcher<
   AC extends (...args: any[]) => AnyAction & { type: string }
 >(actionCreator: AC): Matchable<AC>;
