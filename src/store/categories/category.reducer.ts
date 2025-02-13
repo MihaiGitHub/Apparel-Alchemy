@@ -22,6 +22,7 @@ export const CATEGORIES_INITIAL_STATE: CategoriesState = {
 
 // action will only be one of the AnyAction types
 // use match to get our code to only respond to specific actions, because lots of different actions might fire
+// this function always returns back some CategoriesState
 export const categoriesReducer = (
   state = CATEGORIES_INITIAL_STATE,
   action = {} as AnyAction
