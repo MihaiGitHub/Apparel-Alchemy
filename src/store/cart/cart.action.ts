@@ -1,11 +1,12 @@
-import { CART_ACTION_TYPES, CartItem } from './cart.types';
+import { CART_ACTION_TYPES, CartItem } from "./cart.types";
 import {
   createAction,
   ActionWithPayload,
   withMatcher,
-} from '../../utils/reducer/reducer.utils';
-import { CategoryItem } from '../categories/category.types';
+} from "../../utils/reducer/reducer.utils";
+import { CategoryItem } from "../categories/category.types";
 
+// doesn't need the withMatcher because it doesn't generate an action
 const addCartItem = (
   cartItems: CartItem[],
   productToAdd: CategoryItem
