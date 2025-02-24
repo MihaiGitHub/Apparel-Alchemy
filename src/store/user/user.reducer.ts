@@ -9,6 +9,7 @@ import {
 } from "./user.action";
 import { UserData } from "../../utils/firebase/firebase.utils";
 
+// state values should not be mutable
 export type UserState = {
   readonly currentUser: UserData | null;
   readonly isLoading: boolean;
