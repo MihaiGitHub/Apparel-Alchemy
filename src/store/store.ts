@@ -1,12 +1,13 @@
-import { compose, createStore, applyMiddleware } from "redux";
+import { compose, createStore, applyMiddleware, Middleware } from "redux";
 import { persistStore, persistReducer, PersistConfig } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import logger from "redux-logger";
 import createSagaMiddleware from "redux-saga";
+
 import { rootSaga } from "./root-saga";
+
 import { rootReducer } from "./root-reducer";
 
-// typeof gives you the type of rootReducer whatever it is
 export type RootState = ReturnType<typeof rootReducer>;
 
 declare global {
@@ -15,7 +16,6 @@ declare global {
   }
 }
 
-//PersistConfig is a type that contains all the existing values that exist inside of a PersistConfig so we want to extend on this
 type ExtendedPersistConfig = PersistConfig<RootState> & {
   whitelist: (keyof RootState)[];
 };
@@ -30,14 +30,10 @@ const sagaMiddleware = createSagaMiddleware();
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-// const middleWares = [
-//   process.env.NODE_ENV !== "production" && logger,
-//   sagaMiddleware,
-// ].filter((middleware): middleware is Middleware => Boolean(middleware));
 const middleWares = [
   process.env.NODE_ENV !== "production" && logger,
   sagaMiddleware,
-].filter(Boolean);
+].filter((middleware): middleware is Middleware => Boolean(middleware));
 
 const composeEnhancer =
   (process.env.NODE_ENV !== "production" &&
