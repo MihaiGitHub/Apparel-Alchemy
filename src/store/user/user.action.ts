@@ -66,7 +66,8 @@ export const emailSignInStart = withMatcher(
 );
 
 export const signInSuccess = withMatcher(
-  (user: UserData): SignInSuccess =>
+  // & = extend the UserData type to have the ID of string
+  (user: UserData & { id: string }): SignInSuccess =>
     createAction(USER_ACTION_TYPES.SIGN_IN_SUCCESS, user)
 );
 

@@ -1,5 +1,5 @@
 // gives a typed version of these effect creators
-import { takeLatest, all, call, put } from "typed-redux-saga";
+import { takeLatest, all, call, put } from "typed-redux-saga/macro";
 
 import { getCategoriesAndDocuments } from "../../utils/firebase/firebase.utils";
 
