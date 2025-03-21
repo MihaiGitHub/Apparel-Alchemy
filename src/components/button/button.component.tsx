@@ -22,7 +22,7 @@ const getButton = (buttonType = BUTTON_TYPE_CLASSES.base): typeof BaseButton =>
   export type ButtonProps = {
     buttonType?: BUTTON_TYPE_CLASSES;
     isLoading?: boolean;
-   } & ButtonHTMLAttributes<HTMLButtonElement>;
+   } & ButtonHTMLAttributes<HTMLButtonElement>; // intersection type (ButtonHTMLAttributes for the HTMLButtonElement)
 
 const Butto: FC<ButtonProps> = ({ children, buttonType, isLoading = false, ...otherProps }) => {
   const CustomButton = getButton(buttonType);
