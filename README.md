@@ -1,4 +1,4 @@
-## React TypeScript
+## React TypeScript Project
 
 ## Install dependencies
 
