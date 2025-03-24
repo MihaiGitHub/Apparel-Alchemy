@@ -1,15 +1,17 @@
-import { AnyAction } from "redux";
-import { USER_ACTION_TYPES } from "./user.types";
+import { AnyAction } from 'redux';
+
+import { USER_ACTION_TYPES } from './user.types';
+
 import {
   signInFailed,
   signUpFailed,
   signOutFailed,
   signOutSuccess,
   signInSuccess,
-} from "./user.action";
-import { UserData } from "../../utils/firebase/firebase.utils";
+} from './user.action';
 
-// state values should not be mutable
+import { UserData } from '../../utils/firebase/firebase.utils';
+
 export type UserState = {
   readonly currentUser: UserData | null;
   readonly isLoading: boolean;

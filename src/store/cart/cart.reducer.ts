@@ -1,8 +1,9 @@
-import { AnyAction } from "redux";
-import { CartItem } from "./cart.types";
-import { setIsCartOpen, setCartItems } from "./cart.action";
+import { AnyAction } from 'redux';
 
-// state values should not be mutable
+import { setCartItems, setIsCartOpen } from './cart.action';
+
+import { CartItem } from './cart.types';
+
 export type CartState = {
   readonly isCartOpen: boolean;
   readonly cartItems: CartItem[];
@@ -15,8 +16,8 @@ export const CART_INITIAL_STATE: CartState = {
 
 export const cartReducer = (
   state = CART_INITIAL_STATE,
-  action = {} as AnyAction
-) => {
+  action: AnyAction
+): CartState => {
   if (setIsCartOpen.match(action)) {
     return {
       ...state,

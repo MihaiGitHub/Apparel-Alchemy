@@ -1,5 +1,4 @@
-// none of the styled components receive props so no need to type these
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const SignInContainer = styled.div`
   display: flex;

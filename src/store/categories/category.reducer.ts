@@ -1,13 +1,13 @@
-import { AnyAction } from "redux";
-import { Category } from "./category.types";
+import { AnyAction } from 'redux';
+
+import { Category } from './category.types';
 
 import {
   fetchCategoriesStart,
   fetchCategoriesSuccess,
   fetchCategoriesFailed,
-} from "./category.action";
+} from './category.action';
 
-// this object can be modified
 export type CategoriesState = {
   readonly categories: Category[];
   readonly isLoading: boolean;
@@ -20,14 +20,10 @@ export const CATEGORIES_INITIAL_STATE: CategoriesState = {
   error: null,
 };
 
-// action will only be one of the AnyAction types
-// use match to get our code to only respond to specific actions, because lots of different actions might fire
-// this function always returns back some CategoriesState
 export const categoriesReducer = (
   state = CATEGORIES_INITIAL_STATE,
-  action = {} as AnyAction
+  action: AnyAction
 ): CategoriesState => {
-  // .match checks the action it receives against the action that it needs to create
   if (fetchCategoriesStart.match(action)) {
     return { ...state, isLoading: true };
   }
