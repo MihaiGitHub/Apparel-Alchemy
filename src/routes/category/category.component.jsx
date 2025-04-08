@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect, Fragment } from "react";
 import { useParams } from "react-router-dom";
-import { gql, useQuery } from "@apollo/client";
+import { gql, useQuery, useMutation } from "@apollo/client";
 import ProductCard from "../../components/product-card/product-card.component";
 import Spinner from "../../components/spinner/spinner.component";
 import { CategoryContainer, Title } from "./category.styles";
